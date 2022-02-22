@@ -1,14 +1,22 @@
 """
 This example shows the prediction of a label for a given subsection pair with the trained model
 """
+import re
+import string
 import numpy as np
 import pandas as pd
 from utils.utils import open_csv
 from sentence_transformers.cross_encoder import CrossEncoder_parallel
 
+# You can use text_preprocessing() to remove special characters
+def text_preprocessing(text):
+    text = text.strip('\"').strip('\'').strip()
+    text = re.sub(r'([{}])'.format(string.punctuation), r' ', text)
+    text = re.sub('\s{2,}', ' ', text)  # pad punctuations for bpe
+    text = text.strip()
+    return text
 
-
-# Special characters are removed from input subsection pairs
+# Preprocessed texts from text_preprocessing()
 sample1_a_text = """
     The training developed and implemented under subsection a shall include the following 1 An overview of the fundamentals 
     of clinical pharmacology 2 Familiarization with principles on the utilization of pharmaceuticals in rehabilitation therapies
@@ -58,5 +66,7 @@ model = CrossEncoder_parallel(model_path_root + model_path, device=device_num, m
 pred_scores, logits = model.predict(sentence_combinations,
                             convert_to_numpy=True, show_progress_bar=False)
 pred_labels = np.argmax(pred_scores, axis=1)
+
+# Outputs indicate the predicted classes among 0 (Unrelated) - 4 (Identical)
 print("Predicted Results: \n{}".format(pred_labels))
 
