@@ -212,14 +212,11 @@ def generate_synthetic_0_dict(text1, text2):
 def generate_synthetic_pairs_dict(synthetic_pairs_dict, class_num, label, synthetic_pair_func,
                                                sec_id_text_dict, sec_bill_id_list, sec_lengths, max_text_length, sec_id_list, class_size):
     random_seed = 0
-    print("random_seed: ", random_seed, label, label+random_seed)
     random.seed(label+random_seed)
 
     target_idea_sec_list = random.choices(sec_id_list, k=class_size) # for short sentences
 
     for i, target_idea_sec_id in enumerate(target_idea_sec_list):
-        if i % 10000 == 0:
-            print("label ith", class_num, i)
         sec_a_id = target_idea_sec_id        
         sec_b_id = get_different_longer_bill_sentence_sec(
             sec_a_id, sec_id_list, sec_bill_id_list, 0.5, sec_id_text_dict, sec_lengths)
