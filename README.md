@@ -7,7 +7,7 @@ This repository contains the source code for the paper [Learning Bill Similarity
 
 ---
 
-## Download
+## 🔽Download
 Please download 1) datasets and 2) our best model first before running our code.
 
 ### How to get Datasets
