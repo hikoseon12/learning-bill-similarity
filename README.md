@@ -1,5 +1,5 @@
 # Learning Bill Similarity with Annotated and Augmented Corpora of Bills
-[**Paper**](https://aclanthology.org/2021.emnlp-main.787/) | [**Installation**](#Installation) | [**Data**](#Data)  | [**Models**](#Models) | [**Train**](#Train) | [**Predict**](#Predict) | [**Result**](#Result) |
+[**Paper**](https://aclanthology.org/2021.emnlp-main.787/) | [**Download**](#Download) | [**Install**](#Install) | [**Data**](#Data)  | [**Models**](#Models) | [**Train**](#Train) | [**Predict**](#Predict) | [**Result**](#Result) |
 [**Citation**](#Citation) | [**Contact**](#Contact)
 
 
@@ -24,7 +24,7 @@ Please download 1) datasets and 2) our best model first before running our code.
 
 ---
 
-## 🛠Installation
+## 🛠Install
 We recommend ***Python 3.6*** for training our model.
 ```bash
 pip install -e .
